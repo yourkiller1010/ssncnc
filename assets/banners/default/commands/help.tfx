@@ -1,0 +1,23 @@
+<<$clear>>
+            [97m┌───────────┬──────────────────────────────────────────┐
+            [97m│ [38;5;196mCLEAR     [97m│ [97mClear the terminal screen.               │
+            [97m│ [38;5;196mHELP      [97m│ [97mView this exact banner.                  │
+            [97m│ [38;5;196mMETHODS   [97m│ [97mView the methods list banner.            │
+            [97m│ [38;5;196mPLAN      [97m│ [97mView your plan details.                  │
+            [97m│ [38;5;196mECHO      [97m│ [97mEcho back the provided text.             │
+            [97m│ [38;5;196mLOOKUP    [97m│ [97mLookup a target, Cfx code, or phone #.   │
+            [97m│ [38;5;196mRECENT    [97m│ [97mView your last 24 hours of attacks.      │
+            [97m│ [38;5;196mPASSWD    [97m│ [97mChange your password/api-key on the cnc. │
+            [97m│ [38;5;196mPING      [97m│ [97mICMP ping a target IP address.           │
+            [97m│ [38;5;196mPAPING    [97m│ [97mTCP ping a target IP address.            │
+            [97m│ [38;5;196mTHEMES    [97m│ [97mChange the appearence of the CNC.        │
+            [97m│ [38;5;196mONGOING   [97m│ [97mView ongoing attacks in the CNC.         │
+            [97m│ [38;5;196mENCRYPT   [97m│ [97mEncrypt & echo back the provided text.   │
+            [97m│ [38;5;196mUSERS     [97m│ [97mView all available users commands.       │
+            [97m│ [38;5;196mERASE     [97m│ [97mManage attack logs in the CNC.           │
+            [97m│ [38;5;196mEDITALL   [97m│ [97mView the editall command usage.          │
+            [97m│ [38;5;196mATTACKS   [97m│ [97mEnable/disable attacks in the CNC & API. │
+            [97m│ [38;5;196mLOGS      [97m│ [97mView all available logs commands.        │
+            [97m│ [38;5;196mBROADCAST [97m│ [97mBroadcast a message to online users.     │
+            [97m│ [38;5;196mCOMMANDS  [97m│ [97mView CNC commands list. (full screen)    │
+            [97m└───────────┴──────────────────────────────────────────┘

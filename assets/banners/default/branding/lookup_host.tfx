@@ -1,0 +1,11 @@
+
+ [97mIP[38;5;196m: [97m<<$host.ip>>
+ [97mRegion[38;5;196m: [97m<<$host.region>>
+ [97mCountry[38;5;196m: [97m<<$host.country>> [38;5;196m([97m<<$host.continent>>[38;5;196m)
+ [97mCity[38;5;196m: [97m<<$host.city>>
+ [97mZip[38;5;196m: [97m<<$host.zip>>
+ [97mISP[38;5;196m: [97m<<$host.isp>>
+ [97mAS[38;5;196m: [97m<<$host.asn>>
+ [97mOrg[38;5;196m: [97m<<$host.org>>
+ [97mTimeZone[38;5;196m: [97m<<$host.timezone>>
+

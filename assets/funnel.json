@@ -1,0 +1,142 @@
+{
+    "attacks": [
+        {
+            "method_name": "test1",
+            "links": [
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME",
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME",
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME"
+            ],
+            "configuration": {
+                "method_slots": {
+                    "note": "Enabling this will only allow the max number of attacks below to be running with this method.",
+                    "max": 1000,
+                    "enabled": false
+                },
+                "method_min_time": {
+                    "note": "Enabling this will require users to attack for at least the time below.",
+                    "time": 1,
+                    "enabled": false
+                },
+                "method_max_time": {
+                    "note": "Only enable one of the two options below. ('hard' or 'soft') (Note: You can have both disabled.)",
+                    "hard": {
+                        "note": "Enabling this will allow all users to send for the time below for this method regardless of their account max time.",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "Enabling this will only allow users with the soft max time bypass role to attack over the time set below.",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "Only enable one of the two options below. ('cnc_access_only' or 'api_access_only') (Note: You can have both disabled.)",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "Enable at least one of the options below. (Note: You can enable them all.)",
+                        "ip_address": true,
+                        "url": true,
+                        "domain": true,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false,
+                        "comma_separated_subnets": false
+                    },
+                    "method_group": {
+                        "note": "Enabling 'require_method_group_role' will only allow users with the method group role set in the config.json to attack using this method.",
+                        "method_group_name": "Main Network",
+                        "require_method_group_role": false
+                    },
+                    "as_number_whitelist": {
+                        "note": "Enabling this will override the blacklists that you have set in the config.json file.",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "Only enable one of the two options below ('vip' or 'private') (Note: You can have both disabled.)",
+                    "vip": false,
+                    "private": {
+                        "note": "Enabling this will only allow the users below to use this method.",
+                        "enabled": false,
+                        "users": []
+                    }
+                }
+            }
+        },
+        {
+            "method_name": "test2",
+            "links": [
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME",
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME",
+                "http://localhost/attack.html?host={HOST}&port={PORT}&time={TIME}&method=HOME"
+            ],
+            "configuration": {
+                "method_slots": {
+                    "note": "Enabling this will only allow the max number of attacks below to be running with this method.",
+                    "max": 1000,
+                    "enabled": false
+                },
+                "method_min_time": {
+                    "note": "Enabling this will require users to attack for at least the time below.",
+                    "time": 1,
+                    "enabled": false
+                },
+                "method_max_time": {
+                    "note": "Only enable one of the two options below. ('hard' or 'soft') (Note: You can have both disabled.)",
+                    "hard": {
+                        "note": "Enabling this will allow all users to send for the time below for this method regardless of their account max time.",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "Enabling this will only allow users with the soft max time bypass role to attack over the time set below.",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "Only enable one of the two options below. ('cnc_access_only' or 'api_access_only') (Note: You can have both disabled.)",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "Enable at least one of the options below. (Note: You can enable them all.)",
+                        "ip_address": true,
+                        "url": true,
+                        "domain": true,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false,
+                        "comma_separated_subnets": false
+                    },
+                    "method_group": {
+                        "note": "Enabling 'require_method_group_role' will only allow users with the method group role set in the config.json to attack using this method.",
+                        "method_group_name": "Main Network",
+                        "require_method_group_role": false
+                    },
+                    "as_number_whitelist": {
+                        "note": "Enabling this will override the blacklists that you have set in the config.json file.",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "Only enable one of the two options below ('vip' or 'private') (Note: You can have both disabled.)",
+                    "vip": false,
+                    "private": {
+                        "note": "Enabling this will only allow the users below to use this method.",
+                        "enabled": false,
+                        "users": []
+                    }
+                }
+            }
+        }
+    ]
+}

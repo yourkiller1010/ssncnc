@@ -1,0 +1,7 @@
+
+ [97mFormat[38;5;196m: [97m<<$number.country_prefix>> <<$number.local_format>>
+ [97mCountry Name[38;5;196m: [97m<<$number.country_name>> [38;5;196m([97m<<$number.country_code>>[38;5;196m)
+ [97mLocation[38;5;196m: [97m<<$number.location>>
+ [97mCarrier[38;5;196m: [97m<<$number.carrier>>
+ [97mLine Type[38;5;196m: [97m<<$number.line_type>>
+

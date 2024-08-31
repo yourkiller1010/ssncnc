@@ -1,0 +1,22 @@
+<<$clear>>
+ [97mUsername[38;5;196m: [97m<<$user.username>>
+ [97mMax Attack Time[38;5;196m: [97m<<$user.max_time>> secs
+ [97mConcurrents[38;5;196m: [97m<<$user.concurrents>>
+ [97mCooldown[38;5;196m: [97m<<$user.cooldown>> secs
+ [97mUser Total Attack Count[38;5;196m: [97m<<$user.attacks.count>>
+ [97mUser Ongoing Attack Count[38;5;196m: [97m<<$user.ongoing>>
+ [97mVIP Status[38;5;196m: [97m<<$user.vip>>
+ [97mReseller Status[38;5;196m: [97m<<$user.reseller>>
+ [97mModerator Status[38;5;196m: [97m<<$user.mod>>
+ [97mAdministrator Status[38;5;196m: [97m<<$user.admin>>
+ [97mBypass PowerSaving Status[38;5;196m: [97m<<$user.bypass_power_saving>>
+ [97mBypass SpamProtection Status[38;5;196m: [97m<<$user.bypass_spam_protection>>
+ [97mBypass Blacklist Status[38;5;196m: [97m<<$user.bypass_blacklist>>
+ [97mBypass Soft MaxTime Status[38;5;196m: [97m<<$user.bypass_soft_max_time>>
+ [97mDays Since Plan Creation[38;5;196m: [97m<<$user.time_since.creation>> days
+ [97mDays Till Plan Expiry[38;5;196m: [97m<<$user.time_until.expiry>> days
+ [97mPlan Expiry Date[38;5;196m: [97m<<$user.time_until.expiry.fmt.2>>
+ [97mAccount Created By[38;5;196m: [97m<<$user.created_by>>
+ [97mAccount Creation Date[38;5;196m: [97m<<$user.time_since.creation.fmt.2>>
+ [97mActive Theme[38;5;196m: [97m<<$user.theme>>
+

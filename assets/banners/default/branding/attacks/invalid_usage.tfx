@@ -1,0 +1,3 @@
+Invalid Usage.
+Usage: <<$method>> <target> <port> <duration>
+Example: <<$method>> 8.8.8.8 53 <<$max_time>>

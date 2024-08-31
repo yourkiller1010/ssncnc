@@ -1,0 +1,1 @@
+[ <<$spinner>> ] Uptime: [ <<$cnc.uptime>> ] / Bots: [ <<$fake.bots>> ] / Expires: [ in <<$user.time_until.expiry.fmt>> ] / Running: [ <<$total.ongoing>>/<<$max.slots>> ]

